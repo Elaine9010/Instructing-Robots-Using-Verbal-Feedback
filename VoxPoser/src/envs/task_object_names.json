@@ -1,0 +1,18 @@
+{
+    "put_rubbish_in_bin": [["bin", "bin"], ["rubbish", "rubbish"], ["tomato1", "tomato1"], ["tomato2", "tomato2"]],
+    "lamp_off": [["lamp", "lamp_base"], ["button", "push_button_target"]],
+    "open_wine_bottle": [["bottle", "bottle"], ["cap", "cap"]],
+    "push_button": [["button", "push_button_target"]],
+    "take_off_weighing_scales": [["scale", "scales_tray_physical"], ["green pepper", "pepper0"], ["red pepper", "pepper1"], ["yellow pepper", "pepper2"]],
+    "meat_off_grill": [["grill", "grill"], ["meat", "chicken"]],
+    "slide_block_to_target": [["block", "block"], ["target", "target"]],
+    "take_lid_off_saucepan": [["saucepan", "saucepan"], ["saucepan_lid", "saucepan_lid"]],
+    "take_umbrella_out_of_umbrella_stand": [["umbrella", "umbrella"], ["stand", "stand"]],
+    
+    "open_door": [["door", "door_main_visible"], ["handle", "open_door_handle"]],
+    "block_pyramid": [["block", "block1"], ["block2", "block2"], ["block3", "block3"], ["block4", "block4"], ["block5", "block5"]],
+    "take_shoes_out_of_box": [["shoe1", "shoe1_visual"], ["shoe2", "shoe2_visual"], ["box_lid", "box_lid"]],
+
+    "stack_blocks": [["block0", "stack_blocks_target0"], ["block1", "stack_blocks_target1"], ["block2", "stack_blocks_target2"], ["block3", "stack_blocks_target3"], ["target_plane", "stack_blocks_target_plane"]],
+    "set_the_table": [["plate", "plate_visual"], ["fork", "fork_visual"], ["knife", "knife_visual"], ["spoon", "spoon_visual"], ["cup", "cup_visual"], ["table", "table"]]
+}

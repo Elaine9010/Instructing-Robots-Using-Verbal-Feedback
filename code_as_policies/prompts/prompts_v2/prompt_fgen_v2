@@ -1,0 +1,19 @@
+import numpy as np
+from env_utils import get_obj_pos, get_obj_names
+from ctrl_utils import put_first_on_second
+
+# define function: total = get_total(xs=numbers).
+def get_total(xs):
+    return np.sum(xs)
+
+# define function: pt = get_pt_to_the_left(pt, dist).
+def get_pt_to_the_left(pt, dist):
+    return pt + [-dist, 0]
+
+# define function: pt = get_pt_to_the_top(pt, dist).
+def get_pt_to_the_top(pt, dist):
+    return pt + [0, dist]
+
+# define function: closest_corner_idx = get_closest_idx(points=corner_positions, point=targer_obj_pos)
+def get_closest_idx(points, point):
+    return np.argmin(np.linalg.norm(points - point, axis=1))

@@ -1,0 +1,41 @@
+import numpy as np
+from env_utils import denormalize_xy, parse_obj_name, get_obj_names, get_obj_pos
+
+# top left corner
+say('Ok - getting the denormalized position of the top left corner')
+ret_val = denormalize_xy([0, 1])
+
+# bottom right corner
+say('Ok - getting the denormalized position of the bottom right corner')
+ret_val = denormalize_xy([1, 0])
+
+# the bottom side.
+say('Ok - getting the denormalized position of the bottom side')
+ret_val = denormalize_xy([0.5, 0])
+
+# the corner closest to the red block.
+say('Ok - getting the position of the target object')
+target_obj_name = "red block"
+targer_obj_pos = get_obj_pos(target_obj_name)
+say('Ok - getting the position of the closest corner to the target object')
+corner_positions = np.array([denormalize_xy(pos) for pos in [[0, 0], [0, 1], [1, 1], [1, 0]]])
+closest_corner_idx = get_closest_idx(points=corner_positions, point=targer_obj_pos)
+closes_corner_pos = corner_positions[closest_corner_idx]
+ret_val = = closes_corner_pos
+
+# the bowl farthest to the blue block.
+say('Ok - getting the position of the target object')
+target_obj_name = "blue block"
+targer_obj_pos = get_obj_pos(target_obj_name)
+say('Ok - getting the position of the farthest bowl to the target object')
+bowl_names = ['yellow bowl', 'green bowl', 'blue bowl']
+bowl_positions = np.array([get_obj_pos(name) for name in bowl_names])
+farthest_bowl_idx = get_farthest_idx(points=bowl_positions, point=targer_obj_pos)
+farthest_bowl_pos = bowl_positions[farthest_bowl_idx]
+ret_val = farthest_bowl_pos
+
+# a point 5cm left of the green bowl.
+say('Ok - getting the position of the target point')
+bowl_position = get_obj_pos("green bowl")
+target_point_pos = bowl_position + [-0.05, 0]
+ret_val = target_point_pos

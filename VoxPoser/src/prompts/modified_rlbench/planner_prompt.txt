@@ -1,0 +1,64 @@
+import numpy as np
+from env_utils import execute
+from perception_utils import parse_query_obj
+import action_utils import composer
+
+objects = ['blue block', 'yellow block', 'mug']
+# Query: place the blue block on the yellow block, and avoid the mug at all time.
+composer("grasp the blue block while keeping at least 15cm away from the mug")
+composer("back to default pose")
+composer("move to 5cm on top of the yellow block while keeping at least 15cm away from the mug")
+composer("open gripper")
+composer("back to default pose")
+# done
+
+objects = ['grape', 'lemon', 'drill', 'router', 'bread', 'tray']
+# Query: put the sweeter fruit in the tray that contains the bread.
+composer("grasp the grape")
+composer("back to default pose")
+composer("move to the top of the tray that contains the bread")
+composer("open gripper")
+composer("back to default pose")
+# done
+
+objects = ['cyan bowl', 'yellow bowl', 'box', 'ice cream']
+# Query: move to the top of the cyan bowl.
+composer("move to the top of the cyan bowl")
+composer("back to default pose")
+# done
+
+objects = ['block', 'target']
+# Query: push the block until it is sitting on top of the target.
+composer("push the block until it is on top of the target")
+composer("back to default pose")
+# done
+
+objects = ['block', 'target']
+# Query: slide the block towards the green target.
+composer("push the block towards the target")
+composer("back to default pose")
+# done
+
+objects = ['scale', 'green pepper', 'red pepper', 'yellow pepper']
+# Query: grasp the yellow pepper and move it to the table top.
+composer("grasp the yellow pepper")
+composer("back to default pose")
+composer("move to 10cm on top of the table")
+composer("open gripper")
+composer("back to default pose")
+# done
+
+objects = ['button']
+# Query: push the navy button.
+composer("move to the center of the button")
+composer("push the button")
+composer("back to default pose")
+# done
+
+# Query: put rubbish in bin.
+composer("grasp the rubbish")
+composer("back to default pose")
+composer("move to the top of the bin")
+composer("open gripper")
+composer("back to default pose")
+# done

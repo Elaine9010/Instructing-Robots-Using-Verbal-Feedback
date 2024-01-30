@@ -1,0 +1,58 @@
+import numpy as np
+from env_utils import execute, reset_to_default_pose
+from perception_utils import parse_query_obj
+from plan_utils import get_affordance_map, get_avoidance_map, get_velocity_map, get_rotation_map, get_gripper_map
+
+# Query: move ee forward for 10cm.
+movable = parse_query_obj('gripper')
+affordance_map = get_affordance_map(f'a point 10cm in front of {movable.position}')
+execute(movable, affordance_map)
+
+# Query: move to 10cm on top of the table.
+movable = parse_query_obj('gripper')
+affordance_map = get_affordance_map('a point 10cm above the table')
+execute(movable, affordance_map=affordance_map)
+
+# Query: go back to default.
+reset_to_default_pose()
+
+# Query: throw away the rubbish.
+movable = parse_query_obj('gripper')
+affordance_map = get_affordance_map('a point 15cm above the rubbish bin')
+gripper_map = get_gripper_map('close everywhere but open when on top of the rubbish bin')
+execute(movable, affordance_map=affordance_map, gripper_map=gripper_map)
+
+# Query: drop the toy inside container.
+movable = parse_query_obj('gripper')
+affordance_map = get_affordance_map('a point 15cm above the container')
+gripper_map = get_gripper_map('close everywhere but open when on top of the container')
+execute(movable, affordance_map=affordance_map, gripper_map=gripper_map)
+
+# Query: grasp the blue block.
+movable = parse_query_obj('gripper')
+affordance_map = get_affordance_map('a point at the center of blue block')
+gripper_map = get_gripper_map('open everywhere except 1cm around the blue block')
+execute(movable, affordance_map=affordance_map, gripper_map=gripper_map)
+
+# Query: pick up the trash.
+movable = parse_query_obj('gripper')
+affordance_map = get_affordance_map('a point at the center of trash')
+gripper_map = get_gripper_map('open everywhere except 1cm around the trash')
+execute(movable, affordance_map=affordance_map, gripper_map=gripper_map)
+
+# Query: move to the left of the brown block.
+movable = parse_query_obj('gripper')
+affordance_map = get_affordance_map('a point 10cm to the left of the brown block')
+execute(movable, affordance_map=affordance_map)
+
+# Query: push the button.
+movable = parse_query_obj('gripper')
+affordance_map = get_affordance_map('the button')
+execute(movable, affordance_map=affordance_map)
+
+# Query: push the block until it is on top of the target.
+movable = parse_query_obj('block')
+affordance_map = get_affordance_map('the target')
+execute(movable, affordance_map=affordance_map)
+
+

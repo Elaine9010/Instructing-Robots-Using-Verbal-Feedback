@@ -1,0 +1,56 @@
+import numpy as np
+from env_utils import get_obj_pos, parse_position
+from utils import get_obj_positions_np
+
+# objects = ['blue block', 'cyan block', 'purple bowl', 'gray bowl', 'brown bowl', 'purple block']
+# the block closest to the purple bowl.
+block_names = ['blue block', 'cyan block', 'purple block']
+say(f'Ok - finding the block closest to the purple bowl in the {block_names}}')
+block_positions = get_obj_positions_np(block_names)
+target_obj_idx = get_closest_idx(points=block_positions, point=get_obj_pos('purple bowl'))
+target_obj_name = block_names[target_obj_idx]
+ret_val = target_obj_name
+
+# objects = ['brown bowl', 'banana', 'brown block', 'apple', 'blue bowl', 'blue block']
+# the blocks.
+say('Ok - finding the blocks in the objects list.')
+ret_val = ['brown block', 'blue block']
+
+# objects = ['brown bowl', 'banana', 'brown block', 'apple', 'blue bowl', 'blue block']
+# the brown objects.
+say('Ok - finding the brown objects in the objects list.')
+ret_val = ['brown bowl', 'brown block']
+
+# objects = ['blue block', 'cyan block', 'purple bowl', 'brown bowl', 'purple block']
+# the blue block.
+say('Ok - finding the blue block in the objects list.')
+ret_val = 'blue block'
+
+# objects = ['blue block', 'cyan block', 'purple bowl', 'brown bowl', 'purple block']
+# the bowl closest to the bottom right corner.
+say('Ok - getting the position of the bottom right corner')
+corner_pos = parse_position('bottom right corner')
+say('Finding the bowl closest to the corner position')
+bowl_names = ['blue bowl', 'cyan bowl', 'purple bowl']
+bowl_positions = get_obj_positions_np(bowl_names)
+target_obj_idx = get_closest_idx(points=bowl_positions, point=corner_pos)
+target_obj_name = bowl_names[target_obj_idx]
+ret_val = target_obj_name
+
+# objects = ['brown bowl', 'green block', 'brown block', 'green bowl', 'blue bowl', 'blue block']
+# the left most block.
+block_names = ['green block', 'brown block', 'blue block']
+say(f'Ok - finding the left most block in the {block_names}'})
+block_positions = get_obj_positions_np(block_names)
+target_obj_idx = np.argsort(block_positions[:, 0])[0]
+target_obj_name = block_names[target_obj_idx]
+ret_val = target_obj_name
+
+# objects = ['yellow bowl', 'purple block', 'yellow block', 'purple bowl', 'pink bowl', 'pink block']
+# the first bowl from the right.
+bowl_names = ['yellow bowl', 'purple bowl', 'pink bowl']
+say(f'Ok - finding the first bowl from the right in the {bowl_names}')
+bowl_positions = get_obj_positions_np(bowl_names)
+target_obj_idx = np.argsort(bowl_positions[:, 0])[-1]
+target_obj_name = bowl_names[target_obj_idx]
+ret_val = target_obj_name

@@ -1,0 +1,66 @@
+# Python 2D robot control script
+import numpy as np
+from env_utils import put_first_on_second, get_obj_pos, get_obj_names, say, get_corner_name, get_side_name
+from plan_utils import parse_obj_name, parse_position, parse_question
+
+# objects = ['yellow block', 'green block', 'yellow bowl', 'blue block', 'blue bowl', 'green bowl']
+# place the yellow block on the yellow bowl.
+say('Ok - putting the yellow block on the yellow bowl')
+put_first_on_second('yellow block', 'yellow bowl')
+
+# objects = ['yellow block', 'green block', 'yellow bowl', 'blue block', 'blue bowl', 'green bowl']
+# move the green block to the top right corner.
+say('Got it - getting the position of the target corner')
+corner_pos = parse_position('top right corner')
+say('Moving the green block to the top right corner')
+put_first_on_second('green block', corner_pos)
+
+# objects = ['yellow block', 'green block', 'yellow bowl', 'blue block', 'blue bowl', 'green bowl']
+# put the blue block on the bowl closest to it.
+say('Ok - getting the name of the target bowl')
+closest_bowl_name = parse_obj_name('the bowl closest to the blue block', f'objects = {get_obj_names()}')
+say(f'putting the blue block on the {closest_bowl_name}')
+put_first_on_second('blue block', closest_bowl_name)
+    
+# objects = ['yellow block', 'red block', 'yellow bowl', 'gray block', 'gray bowl', 'red bowl']
+# put the yellow block on the corner farthest to it.
+say('Ok - getting the position of the target corner')
+target_corner_pos = parse_position('the corner farthest to the yellow block')
+target_corner_name = get_corner_name(target_corner_pos)
+say(f'Putting the yellow block in the {target_corner_name}')
+put_first_on_second('yellow block', target_corner_pos)
+
+# objects = ['pink block', 'green block', 'pink bowl', 'blue block', 'blue bowl', 'green bowl']
+# move the green bowl 10cm to its left.
+say('Sure - getting the target position')
+target_pos = parse_position('a point 10cm left of the green bowl')
+say('Moving the green bowl to the target position')
+put_first_on_second('green bowl', target_pos)
+
+# objects = ['brown bowl', 'green block', 'brown block', 'green bowl', 'blue bowl', 'blue block']
+# move the brown bowl to the corner closest to the green block.
+say('Ok - getting the position of the target corner')
+target_corner_pos = parse_position('the corner closest to the green block')
+say('Moving the brown bowl to the target corner position')
+put_first_on_second('brown bowl', target_corner_position)
+
+# objects = ['yellow block', 'red block', 'yellow bowl', 'gray block', 'gray bowl', 'red bowl']
+# can you cut the bowls in half.
+say('no, I can only move objects around')
+
+# objects = ['cyan block', 'white block', 'cyan bowl', 'blue block', 'blue bowl', 'white bowl']
+# move the cyan block into its corresponding bowl.
+say('Ok - finding matching bowl for the cyan block')
+matches = {'cyan block': 'cyan bowl'}
+say('Got it - placing the cyan block on the cyan bowl')
+for first, second in matches.items():
+    put_first_on_second(first, get_obj_pos(second))
+
+# objects = ['yellow block', 'green block', 'yellow bowl', 'gray block', 'gray bowl', 'green bowl']
+# put all the blocks in their corresponding bowls.
+say('Ok - finding matches between blocks and bowls')
+matches = {'yellow block': 'yellow bowl', 'green block': 'green bowl', 'gray block': 'gray bowl'}
+say('Ok. Putting all the blocks in their corresponding bowls')
+for first, second in matches.items():
+    say(f'Placing the {first} on the {second}')
+    put_first_on_second(first, get_obj_pos(second))
