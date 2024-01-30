@@ -1,27 +1,9 @@
-## VoxPoser: Composable 3D Value Maps for Robotic Manipulation with Language Models
+## Modified VoxPoser
 
-#### [[Project Page]](https://voxposer.github.io/) [[Paper]](https://voxposer.github.io/voxposer.pdf) [[Video]](https://www.youtube.com/watch?v=Yvn4eR05A3M)
+This is the demo code for the WizardCoder-powered VoxPoser, a method that uses large language models and vision-language models to zero-shot synthesize trajectories for manipulation tasks. The original code can be found at [VoxPoser](https://voxposer.github.io/)
 
-[Wenlong Huang](https://wenlong.page)<sup>1</sup>, [Chen Wang](https://www.chenwangjeremy.net/)<sup>1</sup>, [Ruohan Zhang](https://ai.stanford.edu/~zharu/)<sup>1</sup>, [Yunzhu Li](https://yunzhuli.github.io/)<sup>1,2</sup>, [Jiajun Wu](https://jiajunwu.com/)<sup>1</sup>, [Li Fei-Fei](https://profiles.stanford.edu/fei-fei-li)<sup>1</sup>
+In this repo, we provide the implementation of modified VoxPoser in [RLBench](https://sites.google.com/view/rlbench).
 
-<sup>1</sup>Stanford University, <sup>2</sup>University of Illinois Urbana-Champaign
-
-<img  src="media/teaser.gif" width="550">
-
-This is the official demo code for [VoxPoser](https://voxposer.github.io/), a method that uses large language models and vision-language models to zero-shot synthesize trajectories for manipulation tasks.
-
-In this repo, we provide the implementation of VoxPoser in [RLBench](https://sites.google.com/view/rlbench) as its task diversity best resembles our real-world setup. Note that VoxPoser is a zero-shot method that does not require any training data. Therefore, the main purpose of this repo is to provide a demo implementation rather than an evaluation benchmark.
-
-If you find this work useful in your research, please cite using the following BibTeX:
-
-```bibtex
-@article{huang2023voxposer,
-      title={VoxPoser: Composable 3D Value Maps for Robotic Manipulation with Language Models},
-      author={Huang, Wenlong and Wang, Chen and Zhang, Ruohan and Li, Yunzhu and Wu, Jiajun and Fei-Fei, Li},
-      journal={arXiv preprint arXiv:2307.05973},
-      year={2023}
-    }
-```
 
 ## Setup Instructions
 
@@ -39,8 +21,6 @@ conda activate voxposer-env
 ```Shell
 pip install -r requirements.txt
 ```
-
-- Obtain an [OpenAI API](https://openai.com/blog/openai-api) key, and put it inside the first cell of the demo notebook.
 
 ## Running Demo
 
