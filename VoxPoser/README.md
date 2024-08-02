@@ -30,7 +30,7 @@ Demo code is at `src/eval_C.ipynb`. Instructions can be found in the notebook.
 
 Core to VoxPoser:
 
-- **`playground.ipynb`**: Playground for VoxPoser.
+- **`eval_C.ipynb`**: Playground for VoxPoser.
 - **`LMP.py`**: Implementation of Language Model Programs (LMPs) that recursively generates code to decompose instructions and compose value maps for each sub-task.
 - **`interfaces.py`**: Interface that provides necessary APIs for language models (i.e., LMPs) to operate in voxel space and to invoke motion planner.
 - **`planners.py`**: Implementation of a greedy planner that plans a trajectory (represented as a series of waypoints) for an entity/movable given a value map.
