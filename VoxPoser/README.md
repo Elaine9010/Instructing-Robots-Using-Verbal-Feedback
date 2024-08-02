@@ -24,7 +24,7 @@ pip install -r requirements.txt
 
 ## Running Demo
 
-Demo code is at `src/playground.ipynb`. Instructions can be found in the notebook.
+Demo code is at `src/eval_C.ipynb`. Instructions can be found in the notebook.
 
 ## Code Structure
 
